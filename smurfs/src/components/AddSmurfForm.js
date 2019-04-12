@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Loader from 'react-loader-spinner';
 
 import {addSmurf} from '../actions';
 
@@ -10,7 +11,7 @@ class AddSmurfForm extends React.Component {
         height: ''
     }
 
-    addSmurf = event => {
+    addSmurf = () => {
         this.props.addSmurf(this.state);
 
         this.setState({
@@ -47,7 +48,17 @@ class AddSmurfForm extends React.Component {
                     placeholder="height"
                     value={this.state.height}
                 />
-                <button onClick={this.addSmurf}>Submit</button>
+                {this.props.addError && (
+                    <p>{this.props.addError}</p>
+                )}
+
+                <button onClick={this.addSmurf}>
+                    {this.props.addingSmurf ? (
+                        <Loader type="ThreeDots" color="#somecolor" height={20} width={20} />
+                    ) : (
+                        'Submit'
+                    )}
+                </button>
             </form>
         )
     }
