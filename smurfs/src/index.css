@@ -77,6 +77,15 @@ a:hover {
 }
 
 @media (max-width: 500px) {
+
+  .nav-bar {
+    justify-content: space-between;
+  }
+
+  .nav-bar a {
+    font-size: 1.2rem;
+  }
+
   .smurf {
     margin: 20px;
   }

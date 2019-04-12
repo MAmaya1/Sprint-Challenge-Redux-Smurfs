@@ -54,7 +54,7 @@ class AddSmurfForm extends React.Component {
                 )}
                 <button onClick={this.addSmurf}>
                     {this.props.addingSmurf ? (
-                        <Loader type="ThreeDots" color="#somecolor" height={20} width={20} />
+                        <Loader type="ThreeDots" color="#88CCFF" height={20} width={20} />
                     ) : (
                         'Submit'
                     )}

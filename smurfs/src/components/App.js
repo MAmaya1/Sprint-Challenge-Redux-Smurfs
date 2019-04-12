@@ -22,7 +22,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="nav-bar">
-            <NavLink to="/">Smurfs Village</NavLink>
+            <NavLink exact to="/">Smurfs Village</NavLink>
             <NavLink to="/add-smurf">Add A Smurf</NavLink>
           </div>
           <Route exact path="/" component={SmurfsList}/>
