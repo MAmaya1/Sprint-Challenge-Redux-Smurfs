@@ -41,7 +41,7 @@ export const addSmurf = newSmurf => dispatch => {
       dispatch({type: ADD_SMURF_SUCCESS, payload: res.data});
     })
     .catch(err => {
-      dispatch({type: ADD_SMURF_FAILURE, payload: err})
+      dispatch({type: ADD_SMURF_FAILURE, payload: alert(`More info needed! ${err}`)})
     })
 }
 

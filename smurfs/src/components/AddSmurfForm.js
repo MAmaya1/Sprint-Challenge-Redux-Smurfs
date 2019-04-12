@@ -13,7 +13,6 @@ class AddSmurfForm extends React.Component {
 
     addSmurf = () => {
         this.props.addSmurf(this.state);
-
         this.setState({
             name: '',
             age: '',
@@ -30,6 +29,7 @@ class AddSmurfForm extends React.Component {
     render() {
         return (
             <form className="addSmurf">
+                <h2>Add New Smurf</h2>
                 <input
                     onChange={this.handleChange}
                     name="name"
@@ -51,7 +51,6 @@ class AddSmurfForm extends React.Component {
                 {this.props.addError && (
                     <p>{this.props.addError}</p>
                 )}
-
                 <button onClick={this.addSmurf}>
                     {this.props.addingSmurf ? (
                         <Loader type="ThreeDots" color="#somecolor" height={20} width={20} />

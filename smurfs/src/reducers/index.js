@@ -76,7 +76,7 @@ export const smurfsReducer = (state = initialState, action) => {
       return {
         ...state,
         addingSmurf: false,
-        addError: 'Missing info!'
+        addError: action.payload
       }
 
     default:

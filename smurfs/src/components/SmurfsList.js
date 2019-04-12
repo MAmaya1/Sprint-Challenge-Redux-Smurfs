@@ -4,7 +4,7 @@ import Smurf from './Smurf';
 
 const SmurfsList = props => {
     return (
-        <div>
+        <div className="smurf-list">
             {props.smurfs.map(smurf => (
                 <Smurf
                     key={Math.random()}
