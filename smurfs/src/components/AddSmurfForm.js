@@ -11,7 +11,8 @@ class AddSmurfForm extends React.Component {
         height: ''
     }
 
-    addSmurf = () => {
+    addSmurf = event => {
+        event.preventDefault();
         this.props.addSmurf(this.state);
         this.setState({
             name: '',

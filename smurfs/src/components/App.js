@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+
 import './App.css';
-import {connect} from 'react-redux';
-import Loader from 'react-loader-spinner';
 
 import SmurfsList from './SmurfsList';
 import AddSmurfForm from './AddSmurfForm';
-
-import {getSmurfs} from '../actions';
 
 /*
  to wire this component up you're going to need a few things.
@@ -19,35 +17,20 @@ import {getSmurfs} from '../actions';
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.getSmurfs();
-  }
-
   render() {
     return (
-      <div className="App">
-        <h1>Smurfs Village</h1>
-        {this.props.fetchingSmurfs && (
-          <Loader type="ThreeDots" color="#88CCFF" height={50} width={50} />
-        )}
-        {this.props.smurfs && (
-          <SmurfsList smurfs={this.props.smurfs}/>
-        )}
-        {this.props.loadError && (
-          <p>{this.props.loadError}</p>
-        )}
-        <AddSmurfForm/>
-      </div>
+      <Router>
+        <div className="App">
+          <div className="nav-bar">
+            <NavLink to="/">Smurfs Village</NavLink>
+            <NavLink to="/add-smurf">Add A Smurf</NavLink>
+          </div>
+          <Route exact path="/" component={SmurfsList}/>
+          <Route path="/add-smurf" component={AddSmurfForm}/>
+        </div>
+      </Router>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    smurfs: state.smurfs,
-    fetchingSmurfs: state.fetchingSmurfs,
-    loadError: state.loadError
-  }
-}
-
-export default connect(mapStateToProps, {getSmurfs})(App);
+export default App;
