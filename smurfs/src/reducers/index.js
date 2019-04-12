@@ -2,7 +2,14 @@
   Be sure to import in all of the action types from `../actions`
 */
 
-import {FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE} from '../actions';
+import {
+  FETCH_SMURFS_START,
+  FETCH_SMURFS_SUCCESS,
+  FETCH_SMURFS_FAILURE,
+  ADD_SMURF_START,
+  ADD_SMURF_SUCCESS,
+  ADD_SMURF_FAILURE
+} from '../actions';
 
 // Set Initial State
 
@@ -22,7 +29,8 @@ const initialState = {
   smurfs: [],
   fetchingSmurfs: false,
   addingSmurf: false,
-  error: null
+  loadError: null,
+  addError: null
 }
 
 
@@ -32,7 +40,7 @@ export const smurfsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingSmurfs: true,
-        error: null
+        loadError: null
       }
 
     case FETCH_SMURFS_SUCCESS: 
@@ -40,14 +48,37 @@ export const smurfsReducer = (state = initialState, action) => {
         ...state,
         smurfs: action.payload,
         fetchingSmurfs: false,
-        error: null,
+        loadError: null,
       }
     case FETCH_SMURFS_FAILURE: 
       return {
         ...state,
         fetchingSmurfs: false,
-        error: 'No Smurfs found'
+        loadError: 'No Smurfs found'
       }
+
+    case ADD_SMURF_START:
+      return {
+        ...state,
+        addingSmurf: true,
+        addError: null
+      }
+
+    case ADD_SMURF_SUCCESS:
+      return {
+        ...state,
+        addingSmurf: false,
+        smurfs: action.payload,
+        addError: null
+      }
+
+    case ADD_SMURF_FAILURE:
+      return {
+        ...state,
+        addingSmurf: false,
+        addError: 'Missing info!'
+      }
+
     default:
       return state
   }

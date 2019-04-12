@@ -7,7 +7,7 @@ const SmurfsList = props => {
         <div>
             {props.smurfs.map(smurf => (
                 <Smurf
-                    key={Date.now()}
+                    key={Math.random()}
                     name={smurf.name}
                     age={smurf.age}
                     height={smurf.height}

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
 
 import SmurfsList from './SmurfsList';
+import AddSmurfForm from './AddSmurfForm';
 
 import {getSmurfs} from '../actions';
 /*
@@ -28,9 +29,10 @@ class App extends Component {
         {this.props.smurfs && (
           <SmurfsList smurfs={this.props.smurfs}/>
         )}
-        {this.props.error && (
-          <p>{this.props.error}</p>
+        {this.props.loadError && (
+          <p>{this.props.loadError}</p>
         )}
+        <AddSmurfForm/>
       </div>
     );
   }
@@ -40,7 +42,7 @@ const mapStateToProps = state => {
   return {
     smurfs: state.smurfs,
     fetchingSmurfs: state.fetchingSmurfs,
-    error: state.error
+    loadError: state.loadError
   }
 }
 
