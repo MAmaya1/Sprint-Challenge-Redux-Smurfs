@@ -22,9 +22,21 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+- [x] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+    Actions in Redux contain action types and data.  Reducer functions take the data from actions, and change/update state according to that data.
+
+    The store is known as the 'single source of truth' because it stores all of our application state, which in turn controls all of our views.
+
+- [x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+    Application state is the global state data for our entire app.  It is determined by actions and our reducer function, and can pass props into specific components as needed.
+
+    Component state is stored locally on a specific component, and is only used to handle state changes on that component.  An example of this would be handling inputs on a login form.
+
+- [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+    redux-thunk is middleware that allows us to return functions in our action creators instead of just objects.  This gives action creators more functionality by allowing us to use dispatch or make axios calls. 
 
 ## Project Set Up
 
