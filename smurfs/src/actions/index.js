@@ -19,6 +19,12 @@ export const getSmurfs = () => {
           payload: res.data
         })
       })
+      .catch(err => {
+        dispatch({
+          type: FETCH_SMURFS_FAILURE,
+          payload: err
+        })
+      })
   }
 }
 

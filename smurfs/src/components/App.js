@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {connect} from 'react-redux';
+import Loader from 'react-loader-spinner';
 
 import SmurfsList from './SmurfsList';
 
@@ -21,7 +22,15 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Smurfs Village</h1>
-        <SmurfsList smurfs={this.props.smurfs}/>
+        {this.props.fetchingSmurfs && (
+          <Loader type="ThreeDots" color="#somecolor" height={50} width={50} />
+        )}
+        {this.props.smurfs && (
+          <SmurfsList smurfs={this.props.smurfs}/>
+        )}
+        {this.props.error && (
+          <p>{this.props.error}</p>
+        )}
       </div>
     );
   }

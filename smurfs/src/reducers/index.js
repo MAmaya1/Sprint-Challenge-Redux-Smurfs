@@ -42,6 +42,12 @@ export const smurfsReducer = (state = initialState, action) => {
         fetchingSmurfs: false,
         error: null,
       }
+    case FETCH_SMURFS_FAILURE: 
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        error: 'No Smurfs found'
+      }
     default:
       return state
   }
