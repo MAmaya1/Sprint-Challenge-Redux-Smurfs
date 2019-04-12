@@ -36,7 +36,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 
-    redux-thunk is middleware that allows us to return functions in our action creators instead of just objects.  This gives action creators more functionality by allowing us to use dispatch or make axios calls. 
+    redux-thunk is middleware that allows us to return functions in our action creators instead of just objects.  This gives action creators more functionality by allowing us to dispatch actions or make axios calls. 
 
 ## Project Set Up
 
